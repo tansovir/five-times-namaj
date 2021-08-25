@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import Userform from './component/Userform/Userform';
+import PrayerDisplay from './component/PrayerDisplay/PrayerDisplay';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="full-container">
+      <Container>
+        <Row>
+          <Col md={6}>
+            <Userform />
+          </Col>
+          <Col md={6}>
+            <PrayerDisplay/>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
