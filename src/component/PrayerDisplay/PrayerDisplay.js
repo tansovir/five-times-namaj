@@ -3,7 +3,8 @@ import { Table } from 'react-bootstrap';
 import PrayerData from './PrayerData/PrayerData';
 
 const PrayerDisplay = (props) => {
-    const salahs = props.salah;
+    const salahs = props.salahs;
+
     return (
         <Table striped bordered hover size="sm">
             <thead>
@@ -18,10 +19,9 @@ const PrayerDisplay = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {
-                    props.salah.map(salah=> <PrayerData salah={salah}/>)
-                }
-               
+            {
+                salahs.map((salah) => (<PrayerData key={salah.id} salah={salah}/>))
+            }
             </tbody>
         </Table>
     );

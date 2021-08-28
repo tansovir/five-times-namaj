@@ -1,11 +1,12 @@
 import React from 'react';
+import moment from 'moment'
 
 const PrayerData = (props) => {
-    console.log(props.salah);
     const {fojor,juhor, asor, magrib, esha, tahajjud, created_at} = props.salah;
     return (
         <tr className="text-center">
-            <td>{created_at}</td>
+            {/* <td>{moment(created_at.toDate())}</td> */}
+            <td>{moment(created_at).calendar()}</td>
             <td>{fojor}</td>
             <td>{juhor}</td>
             <td>{asor}</td>

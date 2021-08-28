@@ -6,17 +6,25 @@ import { Alert } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 // const apiUrl = 'http://localhost/salah-api/public/api/salahs';
-const apiUrl = 'http://localhost/salah/salah-laravel-rest-api/public/api/salahs';
+
 
 
 function App() {
-  const [salah, setSalah] = useState({});
+  const [salahs, setSalahs] = useState([]);
   useEffect(()=>{
-    axios.get(apiUrl).then((res)=>{
+    const apiURL = 'http://localhost/salah/salah-laravel-rest-api/public/api/salahs';
+    axios.get(apiURL).then((res)=>{
       const data = res.data;
-      setSalah(data);
+      setSalahs(data);
     })
   },[])
+  const salahSubmitHandler = (e) => {
+    e.preventDefault();
+  }
+  const salahOnChangeHandler = (e) => {
+    const {name, value} = e.target;
+    console.log(name, ':' , value);
+  }
 
   
   return (
@@ -25,11 +33,11 @@ function App() {
         <Row>
           <Col md={6} className="mt-5">
             <Alert variant="danger" className="text-center">Are you make your salah?</Alert>
-            <Prayerform />
+            <Prayerform salahSubmitHandler={salahSubmitHandler} salahOnChangeHandler={salahOnChangeHandler}/>
           </Col>
           <Col md={6} className="mt-5">
             <Alert variant="success" className="text-center">Your Amol History</Alert>
-            <PrayerDisplay salah={salah} />
+            <PrayerDisplay salahs={salahs} />
           </Col>
         </Row>
       </Container>
