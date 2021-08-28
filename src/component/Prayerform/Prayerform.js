@@ -1,52 +1,49 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const Prayerform = () => {
-    const storeSalah = (e) => {
-        e.preventDefault();
-        console.log('clicked')
-    }
+const Prayerform = (props) => {
+    // console.log(props)
     return (
-        <Form onSubmit={storeSalah()} className="row mx-1 mx-md-0">
-            <Form.Group controlId="formFojor" className='col-6 col-md-4 py-2 border rounded'>
+        <Form  onSubmit={props.salahSubmitHandler} className="row mx-1 mx-md-0">
+            <Form.Group onChange={props.onChangeHandler} controlId="fojor" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Fojor</Form.Label>
-                <Form.Check type="radio" name="formFojor" label="No"/>
-                <Form.Check type="radio" name="formFojor" label="Right Time"/>
-                <Form.Check type="radio" name="formFojor" label="Kaja"/>
-                <Form.Check type="radio" name="formFojor" label="Befor Kaja"/>
+                <Form.Check type="radio" controlId="No" value='No' name="fojor" label="No"/>
+                <Form.Check type="radio" controlId="RightTime" value="Right Time" name="fojor" label="Right Time"/>
+                <Form.Check type="radio" value="Kaja" name="fojor" label="Kaja"/>
+                <Form.Check type="radio" value="Befor Kaja" name="fojor" label="Befor Kaja"/>
             </Form.Group>
-            <Form.Group controlId="formJuhor" className='col-6 col-md-4 py-2 border rounded'> 
+            <Form.Group controlId="juhor" className='col-6 col-md-4 py-2 border rounded'> 
                 <Form.Label>Juhor</Form.Label>
-                <Form.Check type="radio" name="formJuhor" label="No"/>
-                <Form.Check type="radio" name="formJuhor" label="Right Time"/>
-                <Form.Check type="radio" name="formJuhor" label="Kaja"/>
-                <Form.Check type="radio" name="formJuhor" label="Befor Kaja"/>
+                <Form.Check type="radio" name="juhor" label="No"/>
+                <Form.Check type="radio" name="juhor" label="Right Time"/>
+                <Form.Check type="radio" name="juhor" label="Kaja"/>
+                <Form.Check type="radio" name="juhor" label="Befor Kaja"/>
             </Form.Group>
-            <Form.Group controlId="formAsor" className='col-6 col-md-4 py-2 border rounded'>
+            <Form.Group controlId="asor" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Asor</Form.Label>
-                <Form.Check type="radio" name="formAsor" label="No"/>
-                <Form.Check type="radio" name="formAsor" label="Right Time"/>
-                <Form.Check type="radio" name="formAsor" label="Kaja"/>
-                <Form.Check type="radio" name="formAsor" label="Befor Kaja"/>
+                <Form.Check type="radio" name="asor" label="No"/>
+                <Form.Check type="radio" name="asor" label="Right Time"/>
+                <Form.Check type="radio" name="asor" label="Kaja"/>
+                <Form.Check type="radio" name="asor" label="Befor Kaja"/>
             </Form.Group>
-            <Form.Group controlId="formMagrib" className='col-6 col-md-4 py-2 border rounded'>
+            <Form.Group controlId="margrib" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Magrib</Form.Label>
-                <Form.Check type="radio" name="formMagrib" label="No"/>
-                <Form.Check type="radio" name="formMagrib" label="Right Time"/>
-                <Form.Check type="radio" name="formMagrib" label="Kaja"/>
-                <Form.Check type="radio" name="formMagrib" label="Befor Kaja"/>
+                <Form.Check type="radio" name="margrib" label="No"/>
+                <Form.Check type="radio" name="margrib" label="Right Time"/>
+                <Form.Check type="radio" name="margrib" label="Kaja"/>
+                <Form.Check type="radio" name="margrib" label="Befor Kaja"/>
             </Form.Group>
-            <Form.Group controlId="formEsha" className='col-6 col-md-4 py-2 border rounded'>
+            <Form.Group controlId="esha" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Esha</Form.Label>
-                <Form.Check type="radio" name="formEsha" label="No"/>
-                <Form.Check type="radio" name="formEsha" label="Right Time"/>
-                <Form.Check type="radio" name="formEsha" label="Kaja"/>
-                <Form.Check type="radio" name="formEsha" label="Befor Kaja"/>
+                <Form.Check type="radio" name="esha" label="No"/>
+                <Form.Check type="radio" name="esha" label="Right Time"/>
+                <Form.Check type="radio" name="esha" label="Kaja"/>
+                <Form.Check type="radio" name="esha" label="Befor Kaja"/>
             </Form.Group>
-            <Form.Group controlId="formTahajjud" className='col-6 col-md-4 py-2 border rounded'>
+            <Form.Group controlId="tahajjud" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Tahajjud</Form.Label>
-                <Form.Check type="radio" name="formTahajjud" label="No"/>
-                <Form.Check type="radio" name="formTahajjud" label="Yes"/>
+                <Form.Check type="radio" name="tahajjud" label="No"/>
+                <Form.Check type="radio" name="tahajjud" label="Yes"/>
             </Form.Group>
             <Button className="mt-3" variant="success" type="submit">Store Your Amol</Button>
             
