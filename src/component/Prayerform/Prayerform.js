@@ -1,14 +1,14 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 
-const Prayerform = (props) => {
+const Prayerform = () => {
     // console.log(props)
     return (
-        <Form  onSubmit={props.salahSubmitHandler} className="row mx-1 mx-md-0">
-            <Form.Group onChange={props.onChangeHandler} controlId="fojor" className='col-6 col-md-4 py-2 border rounded'>
+        <Form className="row mx-1 mx-md-0">
+            <Form.Group controlId="fojor" className='col-6 col-md-4 py-2 border rounded'>
                 <Form.Label>Fojor</Form.Label>
-                <Form.Check type="radio" controlId="No" value='No' name="fojor" label="No"/>
-                <Form.Check type="radio" controlId="RightTime" value="Right Time" name="fojor" label="Right Time"/>
+                <Form.Check type="radio" value='No' name="fojor" label="No"/>
+                <Form.Check type="radio" value="Right Time" name="fojor" label="Right Time"/>
                 <Form.Check type="radio" value="Kaja" name="fojor" label="Kaja"/>
                 <Form.Check type="radio" value="Befor Kaja" name="fojor" label="Befor Kaja"/>
             </Form.Group>
