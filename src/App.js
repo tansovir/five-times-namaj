@@ -49,11 +49,11 @@ function App() {
       <Container>
         <Row>
           <Col md={6} className="mt-5">
-            <Alert variant="danger" className="text-center">Are you make your salah?</Alert>
+            <Alert className="text-center bg-danger text-white">Are you make your salah?</Alert>
             <Prayerform setNewSalahs={setNewSalahs} getNewSalahs={getNewSalahs}/>
           </Col>
           <Col md={6} className="mt-5">
-            <Alert variant="success" className="text-center">Your Amol History</Alert>
+            <Alert className="text-center bg-success text-white">Your Amol History</Alert>
             <PrayerDisplay salahs={salahs} />
           </Col>
         </Row>
