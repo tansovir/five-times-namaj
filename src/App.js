@@ -5,38 +5,39 @@ import PrayerDisplay from './component/PrayerDisplay/PrayerDisplay';
 import { Alert } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// const apiUrl = 'http://localhost/salah-api/public/api/salahs';
-
-
 
 function App() {
   const apiURL = `http://localhost/salah/salah-laravel-rest-api/public/api/salahs`;
-  const [salahs, setSalahs] = useState([]);
-  const [newSalahs, setnewSalahs] = useState({
+  const emptySalah = {
     fojor: '',
     juhor: '',
     asor: '',
     magrib: '',
     esha: '',
     tahajjud: ''
-  });
+  }
+  const [salahs, setSalahs] = useState([]);
+  const [newSalahs, setnewSalahs] = useState(emptySalah);
   useEffect(()=>{
     loadAPI(apiURL);
-  },[])
-  // load api
+  },[apiURL])
+  // load api and set data to useState
   const loadAPI = async url => {
     await axios.get(url).then((res)=>{
       const data = res.data;
+      // update salahs
       setSalahs(data);
     })
   }
-  // set new salah to api
+  // set new salah to api by onsubmit event
   const setNewSalahs = async e => {
     e.preventDefault();
     await axios.post(apiURL, newSalahs).catch(res=>console.log(res));
     loadAPI(apiURL);
+    e.target.reset();
+    setnewSalahs(emptySalah);
   }
-  // get new salah from user form
+  // get new salah from user form by onchange event
   const getNewSalahs = e => {
     setnewSalahs({...newSalahs,
       [e.target.name] : e.target.value
