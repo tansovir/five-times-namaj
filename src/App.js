@@ -24,25 +24,17 @@ function App() {
     loadAPI(apiURL);
   },[])
   // load api
-  const loadAPI = url => {
-    axios.get(url).then((res)=>{
+  const loadAPI = async url => {
+    await axios.get(url).then((res)=>{
       const data = res.data;
       setSalahs(data);
     })
   }
   // set new salah to api
-  const setNewSalahs = e => {
+  const setNewSalahs = async e => {
     e.preventDefault();
-    const apiURL = `http://localhost/salah/salah-laravel-rest-api/public/api/salahs`;
-    axios.post(apiURL, newSalahs).then(res=>console.log(res));
-    setnewSalahs({
-      fojor: '',
-      juhor: '',
-      asor: '',
-      magrib: '',
-      esha: '',
-      tahajjud: ''
-    })
+    await axios.post(apiURL, newSalahs).catch(res=>console.log(res));
+    loadAPI(apiURL);
   }
   // get new salah from user form
   const getNewSalahs = e => {
